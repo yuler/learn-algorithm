@@ -72,3 +72,46 @@
 - 平均情况时间复杂度（average case time complexity）
 - 均摊时间复杂度（amortized time complexity）
 
+## 基础篇
+
+### 数组：为什么很多编程语言中数组都从0开始编号？
+
+从数组存储的内存模型上来看，**下标** 最确切的定义应该是 `偏移（offset）`。
+
+数组作为非常基础的数据结构，通过下标随机访问数组元素又是其非常基础的编程操作，效率的优化就要尽可能做到极致。所以为了减少一次减法操作，数组选择了从 0 开始编号，而不是从 1 开始。
+
+- 如何实现随机访问？
+- 低效的“插入”和“删除”
+- 警惕数组的访问越界问题
+- 容器能否完全替代数组？
+
+### 链表（上）：如何实现LRU缓存淘汰算法?
+
+#### 五花八门的链表结构
+
+1. 单链表
+2. 循环链表
+3. 双向链表
+4. 双向循环链表
+
+#### 链表 VS 数组性能大比拼
+
+从 插入删除、随机访问 对比
+
+数组和链表是两种截然不同的内存组织方式。正是因为内存存储的区别，它们插入、删除、随机访问操作的时间复杂度正好相反。
+
+### 链表（下）：如何轻松写出正确的链表代码？
+
+- 技巧一：理解指针或引用的含义
+- 技巧二：警惕指针丢失和内存泄漏
+- 技巧三：利用哨兵简化实现难度
+- 技巧四：重点留意边界条件处理
+- 技巧五：举例画图，辅助思考
+- 技巧六：多写多练，没有捷径
+
+LeetCode 练习题
+1. [单链表反转](https://leetcode.com/problems/reverse-linked-list/)
+2. [链表中环的检测](https://leetcode.com/problems/linked-list-cycle/)
+3. [两个有序的链表合并](https://leetcode.com/problems/merge-two-sorted-lists/)
+4. [删除链表倒数第 n 个结点](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+5. [求链表的中间结点](https://leetcode.com/problems/middle-of-the-linked-list/)
