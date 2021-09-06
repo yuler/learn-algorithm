@@ -25,15 +25,28 @@ const problem = args[0]
 
 const folder = join('LeetCode', problem)
 const markdownPath = join(folder, `${problem}.md`)
+const typescriptPath = join(folder, `${problem}.ts`)
 
 if (await exists(folder)) {
 	console.log(`[Warning]: ${folder} is exist\nPlease remove it`)
 	Deno.exit(1)
 }
 
+const typescriptTemplate = `
+function main() {
+	// TODO
+}
+
+// test cases
+import {asserts} from '../../deps.ts'
+Deno.test('summary for test case ', () => {
+	asserts.assertEquals(1, 1)
+})
+`
+
 // Create file if don't exist
 await ensureFile(markdownPath)
-await ensureFile(join(folder, `${problem}.ts`))
+await ensureFile(typescriptPath)
 
 // The body data is copy from https://leetcode-cn.com
 const body = {
@@ -71,8 +84,11 @@ try {
 	const document = parser.parseFromString(html, 'text/html')
 	const markdown = service.turndown(document)
 
-	// Write markdown question file
-	await Deno.writeTextFile(markdownPath, markdown)
+	// Write files
+	await Promise.all([
+		Deno.writeTextFile(markdownPath, markdown),
+		Deno.writeTextFile(typescriptPath, typescriptTemplate),
+	])
 } catch (error) {
 	throw error
 }
