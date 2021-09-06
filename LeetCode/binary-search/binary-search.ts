@@ -17,18 +17,21 @@ function search(nums: number[], target: number): number {
 }
 
 // test cases
-import {assertEquals} from 'https://deno.land/std@0.106.0/testing/asserts.ts'
-Deno.test('test', () => {
+import {asserts} from '../../deps.ts'
+Deno.test('test case 1', () => {
 	{
 		const nums = [-1, 0, 3, 5, 9, 12],
 			target = 9,
 			expect = 4
-		assertEquals(search(nums, target), expect)
+		asserts.assertEquals(search(nums, target), expect)
 	}
+})
+
+Deno.test('test case 2', () => {
 	{
 		const nums = [-1, 0, 3, 5, 9, 12],
 			target = 2,
 			expect = -1
-		assertEquals(search(nums, target), expect)
+		asserts.assertEquals(search(nums, target), expect)
 	}
 })
