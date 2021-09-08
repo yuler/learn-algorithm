@@ -1,4 +1,4 @@
-# Run deno test
+# Run test power by Deno
 
 if [[ -n $1 ]]; then
     problem=$1
