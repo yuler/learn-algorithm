@@ -4,7 +4,7 @@ set -eo pipefail
 IFS=$'\n\t'
 
 # Get $problem from `git status`
-status=$(git status | grep LeetCode | head -n 1)
+status=$(git status | grep LeetCode | grep md | head -n 1)
 problem=$(echo $status | sed -r 's/.*LeetCode\/([a-z-]+)\/.*/\1/g')
 
 number=$1
